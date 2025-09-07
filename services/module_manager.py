@@ -1,7 +1,5 @@
 import os
 import subprocess
-import numpy as np
-from typing import List
 
 from .printers import CustomLogger
 
