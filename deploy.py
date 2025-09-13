@@ -5,7 +5,7 @@ import sys
 import time
 from dotenv import load_dotenv
 
-from services.printers import CustomLogger
+from services.custom_logger import CustomLogger
 from services.startup_validator import env_verify
 from services.commands import Commands
 from services.config_manager import set_config
