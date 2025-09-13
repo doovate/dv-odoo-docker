@@ -3,7 +3,7 @@ import json
 import os
 from typing import List, Tuple, Dict
 
-from .printers import CustomLogger
+from .custom_logger import CustomLogger
 
 
 def compare_files(file1: str, file2: str) -> bool:

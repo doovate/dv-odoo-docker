@@ -1,9 +1,6 @@
 from playwright.async_api import async_playwright
+from .custom_logger import CustomLogger
 
-from .printers import CustomLogger
-
-
-# from playwright.sync_api import sync_playwright
 
 async def create_database(port: str, logger: CustomLogger) -> None:
     logger.print_status("Creating database")

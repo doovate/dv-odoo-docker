@@ -12,7 +12,6 @@ class CustomLogFormatter(logging.Formatter):
     CYAN = "\033[0;36m"
     BOLD = "\033[1m"
     RESET = "\033[0m"
-    format = "[%(levelname)s] - %(message)s"
 
     # Formatos para cada nivel
     FORMATS = {
@@ -35,14 +34,14 @@ class CustomLogger(logging.Logger):
     """Logger that uses the custom formatter"""
 
 
-    def __init__(self, name: str, level: str):
+    def __init__(self, name: str):
+        super().__init__(name)
         self.name = name
-        self.level = level
 
         # Add success level to logs
         logging.addLevelName(25, "SUCCESS")
 
-        log_level = logging.DEBUG if level == "verbose" else 25
+        log_level = logging.DEBUG
 
         self.logger = logging.getLogger(name)
         self.logger.setLevel(log_level)

@@ -4,7 +4,7 @@ import subprocess
 import configparser
 
 from dotenv import load_dotenv
-from .printers import CustomLogger
+from .custom_logger import CustomLogger
 
 
 def configure_traefik(target: str, traefik_version: str, odoo_dir: str, logger: CustomLogger) -> None:

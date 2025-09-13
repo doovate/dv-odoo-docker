@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-from .printers import CustomLogger
+from .custom_logger import CustomLogger
 
 
 def list_to_install_addons(project_name: str, db_name: str, addon_list: list, logger: CustomLogger) -> str:

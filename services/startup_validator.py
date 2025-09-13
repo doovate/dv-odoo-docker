@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-from .printers import CustomLogger
+from .custom_logger import CustomLogger
 
 
 def env_verify(logger: CustomLogger, env_variables: dict) -> None:
@@ -18,7 +18,6 @@ def env_verify(logger: CustomLogger, env_variables: dict) -> None:
     logger.print_status("--- Core Configuration ---")
     logger.print_status(f"Project name: {env_variables['COMPOSE_PROJECT_NAME']}")
     logger.print_status(f"Deployment target:{mode}")
-    logger.print_status(f"Script output: {env_variables['SCRIPT_OUTPUT']}")
     logger.print_status("--- Container Versions ---")
     logger.print_status(f"Odoo version: {env_variables['ODOO_VERSION']}")
     logger.print_status(f"Postgres version: {env_variables['POSTGRES_VERSION']}")
@@ -48,7 +47,7 @@ def env_verify(logger: CustomLogger, env_variables: dict) -> None:
 
     try:
         # Odoo version must be correct
-        if env_variables['ODOO_VERSION'] not in ['16', '17', '18']:
+        if env_variables['ODOO_VERSION'] not in ['16', '17', '18', 'latest']:
             logger.print_error(
                 f"La versión de Odoo: {env_variables['ODOO_VERSION']} no es válida. Debe ser 16, 17 o 18")
             exit(1)
