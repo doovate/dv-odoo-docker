@@ -26,14 +26,6 @@ services:
       args:
         ODOO_VERSION: ${ODOO_VERSION}
         OPTIONAL_WHISPER: ${OPTIONAL_WHISPER}
-    labels:
-      - traefik.enable=true
-      - traefik.docker.network=traefik
-      - traefik.http.services.${COMPOSE_PROJECT_NAME}_odoo.loadbalancer.server.port=${ODOO_INTERNAL_PORT}
-      - traefik.http.routers.${COMPOSE_PROJECT_NAME}_odoo_prod.rule=Host(`${DOMAIN}`)
-      - traefik.http.routers.${COMPOSE_PROJECT_NAME}_odoo_prod.entrypoints=websecure
-      - traefik.http.routers.${COMPOSE_PROJECT_NAME}_odoo_prod.tls.certresolver=myresolver
-      - traefik.http.routers.${COMPOSE_PROJECT_NAME}_odoo_prod.service=${COMPOSE_PROJECT_NAME}_odoo
     ports:
       - "${ODOO_EXPOSED_PORT}:${ODOO_INTERNAL_PORT}"
     volumes:
@@ -55,8 +47,6 @@ services:
     networks:
       # Internal network for containers
       - internal_network
-      # External traefik network
-      - traefik
     restart: unless-stopped
 
   logrotate:
@@ -90,6 +80,3 @@ networks:
   internal_network:
     name: ${COMPOSE_PROJECT_NAME}_internal
     driver: bridge
-  # Existing external traefik network
-  traefik:
-    external: true
