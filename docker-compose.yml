@@ -14,8 +14,6 @@ services:
     networks:
       # Internal network
       - internal_network
-      # External traefik network
-      - traefik
     restart: unless-stopped
 
   odoo:
