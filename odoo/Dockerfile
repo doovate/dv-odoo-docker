@@ -34,7 +34,7 @@ RUN pip install --ignore-installed -r /tmp/addons-requirements.txt
 # Install whisper (optional)
 ARG OPTIONAL_WHISPER
 ARG ODOO_VERSION
-RUN if [ "$ODOO_VERSION" = "18" ] && [ "$OPTIONAL_WHISPER" ]; then \
+RUN if [ "$ODOO_VERSION" = "18" ] && { [ "$OPTIONAL_WHISPER" = "true" ] || [ "$OPTIONAL_WHISPER" = "True" ]; }; then \
         apt-get update && \
         apt-get install -y python3-openai ffmpeg && \
         rm -rf /var/lib/apt/lists/*; \
