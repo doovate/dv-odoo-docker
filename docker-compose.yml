@@ -30,6 +30,7 @@ services:
     volumes:
       - ${ODOO_CONFIG}:/etc/odoo/odoo.conf
       - ${ODOO_ADDONS}:/mnt/extra-addons
+      - ./enterprise:/mnt/enterprise
       - odoo_data:/var/lib/odoo
     environment:
       # Postgres container name
