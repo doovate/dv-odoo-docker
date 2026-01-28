@@ -25,8 +25,8 @@ services:
         ODOO_VERSION: ${ODOO_VERSION}
         OPTIONAL_WHISPER: ${OPTIONAL_WHISPER}
     ports:
-      - "${ODOO_EXPOSED_PORT}:${ODOO_INTERNAL_PORT}"
-      - "8072:8072"
+      - "${ODOO_EXPOSED_PORT:-8069}:${ODOO_INTERNAL_PORT}"
+      - "${ODOO_WEBSOCKET_EXPOSED_PORT:-8072}:${ODOO_WEBSOCKET_INTERNAL_PORT:-8072}"
     volumes:
       - ${ODOO_CONFIG}:/etc/odoo/odoo.conf
       - ${ODOO_ADDONS}:/mnt/extra-addons
