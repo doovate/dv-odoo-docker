@@ -2,7 +2,6 @@
 /.idea/
 /pymtech_docker.iml
 /traefik/
-/cache/
 /docker/
 
 /*.py
@@ -10,8 +9,9 @@
 /pyproject.toml
 /uv.lock
 
-# Config files
+# Folders unique to each odoo instance
 /config/
-
+/cache/
 /log/
 /addons/
+/enterprise/
