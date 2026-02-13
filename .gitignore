@@ -10,5 +10,8 @@
 /pyproject.toml
 /uv.lock
 
+# Config files
+/config/
+
 /log/
 /addons/
