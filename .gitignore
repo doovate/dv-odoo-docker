@@ -9,6 +9,9 @@
 /pyproject.toml
 /uv.lock
 
+# Don't need custom config
+/.env
+
 # Folders unique to each odoo instance
 /config/
 /cache/
