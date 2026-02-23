@@ -1,7 +1,13 @@
 services:
   db:
-    image: postgres:${POSTGRES_VERSION}
+#    image: postgres:${POSTGRES_VERSION}
     container_name: ${COMPOSE_PROJECT_NAME}_db
+    build:
+      context: .
+      dockerfile: postgres/Dockerfile
+      args:
+        POSTGRES_VERSION: ${POSTGRES_VERSION}
+        OPTIONAL_POSTGIS: ${OPTIONAL_POSTGIS}
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=odoo
