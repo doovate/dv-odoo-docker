@@ -6,7 +6,7 @@ USER root
 ARG OPTIONAL_POSTGIS
 ARG POSTGRES_VERSION=18
 
-RUN if [ "$OPTIONAL_POSTGIS" = "true" ]; then \
+RUN if [ "$OPTIONAL_POSTGIS" = "true" ] || [ "$OPTIONAL_POSTGIS" = "True" ]; then \
         apt-get update && \
         apt-get install -y ca-certificates gnupg curl lsb-release && \
         curl https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor | tee /etc/apt/trusted.gpg.d/apt.postgresql.org.gpg >/dev/null && \
